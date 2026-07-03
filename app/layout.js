@@ -18,6 +18,9 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   weight: ["400", "500", "600", "700", "800"],
 });
 
+import CustomCursor from "@/components/ui/CustomCursor";
+import SmoothScroll from "@/components/ui/SmoothScroll";
+
 export const metadata = {
   title: "Voltraz MC — Minecraft Server",
   description: "Voltraz MC — Server Minecraft Survival Economy. Java & Bedrock 1.21+. Bergabung sekarang di voltraz.xyz",
@@ -30,9 +33,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${plusJakartaSans.className} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${plusJakartaSans.className} antialiased selection:bg-blue-500/30`}
       >
-        {children}
+        <SmoothScroll>
+          <CustomCursor />
+          {children}
+        </SmoothScroll>
       </body>
     </html>
   );
