@@ -9,16 +9,16 @@ import { motion } from "framer-motion";
 import axios from "axios";
 
 const TRADING_ASSETS = [
-  { id: "bitcoin", symbol: "BTC", name: "Bitcoin", ticker: "BTCUSDT", type: "crypto", desc: "Mata uang kripto paling likuid di dunia" },
-  { id: "ethereum", symbol: "ETH", name: "Ethereum", ticker: "ETHUSDT", type: "crypto", desc: "Platform kontrak pintar terbesar" },
-  { id: "binancecoin", symbol: "BNB", name: "Binance Coin", ticker: "BNBUSDT", type: "crypto", desc: "Token ekosistem Binance" },
-  { id: "solana", symbol: "SOL", name: "Solana", ticker: "SOLUSDT", type: "crypto", desc: "Platform blockchain dengan throughput tinggi" },
-  { id: "ripple", symbol: "XRP", name: "Ripple", ticker: "XRPUSDT", type: "crypto", desc: "Solusi pembayaran lintas batas" },
-  { id: "hyperliquid", symbol: "HYPE", name: "Hyperliquid", ticker: "HYPEUSDT", type: "crypto", desc: "Blockchain DeFi Layer-1" },
-  { id: "usdjpy", symbol: "USD/JPY", name: "USD/JPY", ticker: "USDJPY", type: "forex", desc: "Pasangan forex paling populer di Asia" },
-  { id: "eurusd", symbol: "EUR/USD", name: "EUR/USD", ticker: "EURUSD", type: "forex", desc: "Pasangan forex paling likuid di dunia" },
-  { id: "gold", symbol: "XAU/USD", name: "Gold (Emas)", ticker: "XAUUSD", type: "metal", desc: "Logam mulia safe haven global" },
-  { id: "silver", symbol: "XAG/USD", name: "Silver (Perak)", ticker: "XAGUSD", type: "metal", desc: "Logam industri & safe haven" },
+  { id: "bitcoin", symbol: "BTC", name: "Bitcoin", ticker: "BTCUSDT", type: "crypto", desc: "Mata uang kripto paling likuid di dunia", source: "BINANCE", hours: "24/7" },
+  { id: "ethereum", symbol: "ETH", name: "Ethereum", ticker: "ETHUSDT", type: "crypto", desc: "Platform kontrak pintar terbesar", source: "BINANCE", hours: "24/7" },
+  { id: "binancecoin", symbol: "BNB", name: "Binance Coin", ticker: "BNBUSDT", type: "crypto", desc: "Token ekosistem Binance", source: "BINANCE", hours: "24/7" },
+  { id: "solana", symbol: "SOL", name: "Solana", ticker: "SOLUSDT", type: "crypto", desc: "Platform blockchain dengan throughput tinggi", source: "BINANCE", hours: "24/7" },
+  { id: "ripple", symbol: "XRP", name: "Ripple", ticker: "XRPUSDT", type: "crypto", desc: "Solusi pembayaran lintas batas", source: "BINANCE", hours: "24/7" },
+  { id: "hyperliquid", symbol: "HYPE", name: "Hyperliquid", ticker: "HYPEUSDT", type: "crypto", desc: "Blockchain DeFi Layer-1", source: "BINANCE", hours: "24/7" },
+  { id: "usdjpy", symbol: "USD/JPY", name: "USD/JPY", ticker: "USDJPY", type: "forex", desc: "Pasangan forex paling populer di Asia", source: "FX:IDC / OANDA / FOREX.com", hours: "Senin-Jumat" },
+  { id: "eurusd", symbol: "EUR/USD", name: "EUR/USD", ticker: "EURUSD", type: "forex", desc: "Pasangan forex paling likuid di dunia", source: "FX:IDC / OANDA / FOREX.com", hours: "Senin-Jumat" },
+  { id: "gold", symbol: "XAU/USD", name: "Gold (Emas)", ticker: "XAUUSD", type: "metal", desc: "Logam mulia safe haven global", source: "OANDA", hours: "Senin-Jumat" },
+  { id: "silver", symbol: "XAG/USD", name: "Silver (Perak)", ticker: "XAGUSD", type: "metal", desc: "Logam industri & safe haven", source: "OANDA", hours: "Senin-Jumat" },
 ];
 
 export default function TradingPage() {
@@ -211,6 +211,9 @@ export default function TradingPage() {
                             <span className="text-xl font-mono text-white">${selectedCoin.current_price.toLocaleString()}</span>
                             <span className={`px-2 py-1 rounded text-xs font-bold ${selectedCoin.price_change_percentage_24h >= 0 ? 'bg-green-500/10 text-green-400' : 'bg-red-500/10 text-red-400'}`}>
                               {selectedCoin.price_change_percentage_24h >= 0 ? '+' : ''}{selectedCoin.price_change_percentage_24h.toFixed(2)}% (24h)
+                            </span>
+                            <span className="text-xs bg-white/5 text-gray-400 px-2 py-1 rounded ml-2 hidden sm:inline-block">
+                              Data: {selectedCoin.source} • {selectedCoin.hours}
                             </span>
                           </div>
                         </div>
