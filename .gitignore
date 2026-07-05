@@ -6,3 +6,4 @@ package-lock.json
 .gitignore
 .next
 .git
+tsconfig.tsbuildinfo

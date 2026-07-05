@@ -1,0 +1,11 @@
+{
+  "logo": "/logo.png",
+  "nav_buttons": [
+    { "text": "Trading", "link": "/trading" },
+    { "text": "Discord", "link": "https://discord.voltraz.xyz" }
+  ],
+  "final_cta": {
+    "ip": "voltraz.xyz"
+  },
+  "copy_notification": "Server IP copied to clipboard!"
+}
