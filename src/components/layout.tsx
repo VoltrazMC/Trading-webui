@@ -41,7 +41,7 @@ export function Navbar() {
         <button
           className="bg-primary hover:bg-primary/90 text-white px-5 py-2 rounded-md text-sm font-medium transition-all hover-glow"
           onClick={() => {
-            navigator.clipboard.writeText("voltraz.xyz");
+            navigator.clipboard.writeText(config.final_cta.ip);
             setCopyNotif(true);
             setTimeout(() => setCopyNotif(false), 2000);
           }}
