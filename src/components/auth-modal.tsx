@@ -96,6 +96,15 @@ export function AuthModal({ isOpen, onClose, onSuccess }: AuthModalProps) {
   const [error, setError] = useState('');
   const { cooldown, recordFailure, recordSuccess } = useRateLimit();
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add('overflow-hidden');
+    }
+    return () => {
+      document.body.classList.remove('overflow-hidden');
+    };
+  }, [isOpen]);
+
   const handleVerify = useCallback(
     async (e: React.FormEvent) => {
       e.preventDefault();
